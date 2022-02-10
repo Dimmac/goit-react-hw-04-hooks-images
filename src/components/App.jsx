@@ -12,7 +12,7 @@ import API from '../services/pixabayservices';
 const newsApi = new API();
 
 export default function App() {
-  const [pictureName, setPictureName] = useState("");
+  const [pictureName, setPictureName] = useState('');
   const [pictureModal, setPictureModal] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [picture, setPicture] = useState([]);
@@ -26,7 +26,7 @@ export default function App() {
       newsApi.resetPage();
       setPicture([]);
       setScroll(false);
-      // fetchMorePictures();
+      fetchMorePictures();
     }
   }, [pictureName]);
 

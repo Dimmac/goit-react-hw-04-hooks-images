@@ -3,6 +3,7 @@ import {ImageGallery} from './ImageGallery.styled'
 import PropTypes from 'prop-types';
 
 const ImageGalleryPictures = ({ picture, onClick }) => {
+  console.log(picture)
   return (
     <ImageGallery>
       {picture.map(({ largeImageURL, webformatURL, tags }, index) => {
@@ -21,6 +22,6 @@ const ImageGalleryPictures = ({ picture, onClick }) => {
 export default ImageGalleryPictures;
 
 ImageGalleryPictures.propTypes = {
-  picture: PropTypes.arrayOf.isRequired,
+  picture: PropTypes.arrayOf(PropTypes.shape).isRequired,
   onClick: PropTypes.func.isRequired,
 };

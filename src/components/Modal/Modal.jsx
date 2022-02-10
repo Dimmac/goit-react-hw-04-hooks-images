@@ -23,7 +23,7 @@ export default function ModalWindow({ onClose, children }) {
   };
     return (
       <Overlay onClick={handleBackdropClick}>
-        <Modal>{this.props.children}</Modal>
+        <Modal>{children}</Modal>
       </Overlay>
     );
   
