@@ -26,8 +26,7 @@ export default function App() {
       newsApi.resetPage();
       setPicture([]);
       setScroll(false);
-
-      fetchMorePictures();
+      // fetchMorePictures();
     }
   }, [pictureName]);
 
@@ -93,7 +92,6 @@ export default function App() {
           <img src={pictureModal} alt="" />
         </Modal>
       )}
-
       <ToastContainer
         position="top-center"
         autoClose={3000}
