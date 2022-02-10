@@ -18,7 +18,6 @@ const ImageGalleryPictures = ({ picture, onClick }) => {
     </ImageGallery>
   );
 };
-
 export default ImageGalleryPictures;
 
 ImageGalleryPictures.propTypes = {

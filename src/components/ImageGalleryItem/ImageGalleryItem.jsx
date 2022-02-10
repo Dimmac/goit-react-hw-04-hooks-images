@@ -3,14 +3,12 @@ import {GalleryItem,ImageGalleryItemImage} from './ImageGalleryItem.styled'
 
 const ImageGalleryItem = ({ data, largePicture }) => {
   const { webformatURL, tags, largeImageURL } = data;
-
   return (
     <GalleryItem onClick={() => largePicture(largeImageURL)}>
       <ImageGalleryItemImage src={webformatURL} alt={tags} />
     </GalleryItem>
   );
 };
-
 export default ImageGalleryItem;
 
 ImageGalleryItem.propTypes = {

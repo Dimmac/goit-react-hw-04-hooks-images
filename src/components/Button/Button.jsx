@@ -8,9 +8,7 @@ const Button = ({ pagination }) => {
     </ButtonStyle>
   );
 };
-
 export default Button;
-
 Button.propTypes = {
   pagination: PropTypes.func.isRequired,
 };

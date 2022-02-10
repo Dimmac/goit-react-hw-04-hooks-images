@@ -33,14 +33,10 @@ export default function App() {
   function fetchMorePictures() {
     setLoading(true);
     setScroll(true);
-
     newsApi.query = pictureName;
-    console.log(pictureName);
-
     newsApi
       .fetchImages()
       .then(({ hits }) => {
-        console.log(hits.length);
         setPicture((prevState) => [...prevState, ...hits]);
         setImage(true);
 
@@ -70,23 +66,18 @@ export default function App() {
 
   const toggleModal = (largeImageURL) => {
     setShowModal((prevState) => !prevState);
-    console.log(showModal);
     setPictureModal(largeImageURL);
   };
-
   return (
     <div>
       <Searchbar formSubmit={formSubmitHandler}></Searchbar>
-
       {image && (
         <ImageGallery picture={picture} onClick={toggleModal}></ImageGallery>
       )}
-
       {picture.length > 0 && picture.length % 12 === 0 && (
         <Button pagination={fetchMorePictures}></Button>
       )}
       {loading && <Loader></Loader>}
-
       {showModal && (
         <Modal onClose={toggleModal}>
           <img src={pictureModal} alt="" />

@@ -8,14 +8,11 @@ export default function ModalWindow({ onClose, children }) {
         onClose();
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
-
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
-
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       onClose();
