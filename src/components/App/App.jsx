@@ -38,10 +38,13 @@ export default function App() {
             return;
           }
         })
-        .catch(error => setError(error))
+        .catch((errorCatch) => {
+          console.log(error);
+          return setError(errorCatch);
+        })
         .finally(() => setLoading(false));
     }
-  }, [imgName]);
+  }, [imgName, error]);
 
   const fetchMoreImg = () => {
     setLoading(true);
