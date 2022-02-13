@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
-import { ImSearch } from 'react-icons/im';
+import { BsSearch } from 'react-icons/bs';
 import {
   SearchbarContainer,
   SearchbarForm,
@@ -28,7 +28,7 @@ export default function Searchbar({ onSubmit }) {
     <SearchbarContainer>
       <SearchbarForm onSubmit={handleSubmit}>
         <SearchFormButton type="submit">
-          <ImSearch />
+          <BsSearch />
           <SearchbarFormButtonLabel>Search</SearchbarFormButtonLabel>
         </SearchFormButton>
 

@@ -6,7 +6,7 @@ import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
-import NewsApiService from '../../services/images-api';
+import NewsApiService from '../../services/pixabayservices';
 
 const newsApi = new NewsApiService();
 
