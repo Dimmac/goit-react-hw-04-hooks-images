@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import {ButtonStyle} from './Button.styled';
+import { ButtonLoadMore } from './Button.styled';
 
-const Button = ({ pagination }) => {
+export default function Button({ onClick }) {
   return (
-    <ButtonStyle type="button" onClick={() => pagination()}>
+    <ButtonLoadMore type="button" onClick={() => onClick()}>
       Load more
-    </ButtonStyle>
+    </ButtonLoadMore>
   );
-};
-export default Button;
+}
+
 Button.propTypes = {
-  pagination: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

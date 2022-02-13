@@ -1,49 +1,51 @@
-import { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {SearchList,SearchForm,SearchButton,ButtonLabel,SearchInput} from './Searchbar.styled'
+import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
+import { ImSearch } from 'react-icons/im';
+import {
+  SearchbarContainer,
+  SearchbarForm,
+  SearchFormButton,
+  SearchbarFormButtonLabel,
+  SearchbarFormInput,
+} from './Searchbar.styled';
 
-export default function Searchbar({ formSubmit }) {
-  const [name, setName] = useState("");
+export default function Searchbar({ onSubmit }) {
+  const [imgName, setImgName] = useState('');
 
-  const handleNameChange = (event) => {
-    event.preventDefault();
-
-    setName(event.currentTarget.value);
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if (name.trim() === "") {
-      toast.error("Enter the name of the picture");
-      return;
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (imgName.trim() === '') {
+      return Swal.fire(
+        `Sorry,there are no pictures on request ${imgName}. Please try again`,
+      );
     }
-
-    formSubmit(name);
-
-    reset();
+    onSubmit(imgName);
+    setImgName('');
   };
-
-  const reset = () => setName("");
 
   return (
-    <SearchList>
-      <SearchForm onSubmit={handleSubmit}>
-        <SearchButton type="submit">
-          <BsSearch/>
-          <ButtonLabel/>
-        </SearchButton>
-        <SearchInput
-          name="name"
+    <SearchbarContainer>
+      <SearchbarForm onSubmit={handleSubmit}>
+        <SearchFormButton type="submit">
+          <ImSearch />
+          <SearchbarFormButtonLabel>Search</SearchbarFormButtonLabel>
+        </SearchFormButton>
+
+        <SearchbarFormInput
           type="text"
+          name="imgName"
+          value={imgName}
           autoComplete="off"
-          autoFocus={true}
+          autoFocus
           placeholder="Search images and photos"
-          value={name}
-          onChange={handleNameChange}
+          onChange={e => setImgName(e.target.value.toLowerCase())}
         />
-      </SearchForm>
-    </SearchList>
+      </SearchbarForm>
+    </SearchbarContainer>
   );
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const ImageGallery = styled.ul`
+export const ImageGalleryList = styled.ul`
   display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -11,4 +11,4 @@ export const ImageGallery = styled.ul`
   list-style: none;
   margin-left: auto;
   margin-right: auto;
-`
+`;

@@ -1,21 +1,28 @@
 import PropTypes from 'prop-types';
-import {GalleryItem,ImageGalleryItemImage} from './ImageGalleryItem.styled'
+import {
+  ImageGalleryListItem,
+  ImageGalleryItemImg,
+} from './ImageGalleryItem.styled';
 
-const ImageGalleryItem = ({ data, largePicture }) => {
-  const { webformatURL, tags, largeImageURL } = data;
+export default function ImageGalleryItem({
+  imgForModal,
+  data: { webformatURL, largeImageURL, tags },
+}) {
   return (
-    <GalleryItem onClick={() => largePicture(largeImageURL)}>
-      <ImageGalleryItemImage src={webformatURL} alt={tags} />
-    </GalleryItem>
+    <ImageGalleryListItem
+      key={webformatURL}
+      onClick={() => imgForModal(largeImageURL)}
+    >
+      <ImageGalleryItemImg src={webformatURL} alt={tags} />
+    </ImageGalleryListItem>
   );
-};
-export default ImageGalleryItem;
+}
 
 ImageGalleryItem.propTypes = {
   data: PropTypes.shape({
     webformatURL: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
-    largeImageURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string,
   }),
-  largePicture: PropTypes.func.isRequired,
+  imgForModal: PropTypes.func.isRequired,
 };
