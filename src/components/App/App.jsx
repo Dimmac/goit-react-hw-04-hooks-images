@@ -39,7 +39,6 @@ export default function App() {
           }
         })
         .catch((errorCatch) => {
-          console.log(error);
           return setError(errorCatch);
         })
         .finally(() => setLoading(false));
